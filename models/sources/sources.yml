@@ -13,3 +13,12 @@ sources:
             tests:
                 - unique
                 - not_null
+
+      - name: acceptance_report
+        description: "Raw Globepay Acceptance Report from the CSV file."
+        columns:
+          - name: external_ref
+            description: "Primary key."
+            tests:
+                - unique
+                - not_null
