@@ -5,14 +5,6 @@ sources:
     database: "deel-2025"
     schema: "rac"
     tables:
-      - name: chargeback_report
-        description: "Raw Globepay Chargeback Report from the CSV file."
-        columns:
-          - name: external_ref
-            description: "Primary key."
-            tests:
-                - unique
-                - not_null
 
       - name: acceptance_report
         description: "Raw Globepay Acceptance Report from the CSV file."
@@ -22,3 +14,39 @@ sources:
             tests:
                 - unique
                 - not_null
+          - name: status
+            description: ""
+          - name: source
+            description: "Data source (GLOBALPAY)."
+          - name: ref
+            description: "Transaction ID."
+          - name: date_time
+            description: "The timestamp of the transaction."
+          - name: state
+            description: "The binary state of the transaction. For example: Accepted or Declined."
+          - name: cvv_provided
+            description: "The binary indicting if the CVV was provided. For example: TRUE or FALSE."
+          - name: amount
+            description: "The amount that has been charged from the card in local currency."
+          - name: country
+            description: "The two-character ISO country code of the card."
+          - name: currency
+            description: "The three-character ISO currency code."
+          - name: rates
+            description: "The exchange rate used. Funds are settled to you in USD."
+
+
+      - name: chargeback_report
+        description: "Raw Globepay Chargeback Report from the CSV file."
+        columns:
+          - name: external_ref
+            description: "Primary key."
+            tests:
+                - unique
+                - not_null
+          - name: status
+            description: ""
+          - name: source
+            description: "Data source (GLOBALPAY)."
+          - name: chargeback
+            description: "The binary indicting if the transaction was charged back. For example: TRUE or FALSE."
