@@ -5,7 +5,7 @@ Folder containing the developed queries to analyze the data.
 
 
 ## models
-Folder with the lineage
+Folder with the lineage based mainly on dbt best practices - [How we structure our dbt projects updated on Jan 28, 2025](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview). It has three layers: Sources, Staging, and Mart as described below.
 
 ### models/sources/globalpay
 
