@@ -20,7 +20,7 @@ models:
           - name: state
             description: "The binary state of the transaction. For example: Accepted or Declined."
           - name: cvv_provided
-            description: "The binary indicting if the CVV was provided. For example: TRUE or FALSE"
+            description: "The binary indicting if the CVV was provided. For example: TRUE or FALSE."
           - name: country
             description: "The two-character ISO country code of the card."
           - name: currency
