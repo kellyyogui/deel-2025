@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: bq_sources
+    database: "deel-2025"
+    schema: "rac"
+    tables:
+      - name: chargeback_report
+        description: "Raw Globepay Chargeback Report from the CSV file."
+        columns:
+          - name: external_ref
+            description: "Primary key."
+            tests:
+                - unique
+                - not_null
+
+      - name: acceptance_report
+        description: "Raw Globepay Acceptance Report from the CSV file."
+        columns:
+          - name: external_ref
+            description: "Primary key."
+            tests:
+                - unique
+                - not_null
