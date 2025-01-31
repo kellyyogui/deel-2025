@@ -32,11 +32,13 @@ src as (
 , usd_values as (
     select
         *
-        , SAFE_DIVIDE(
-            amount_local,
-            -- Treat 0 and NULL values to not break the lineage
-            -- But test exchange_rate to ensure it is working properly 
-            IFNULL(NULLIF(exchange_rate, 0), 1)
+        , ROUND(
+                SAFE_DIVIDE(
+                    amount_local,
+                    -- Treat 0 and NULL values to not break the lineage
+                    -- But test exchange_rate to ensure it is working properly 
+                    IFNULL(NULLIF(exchange_rate, 0), 1))
+                ,2
          ) as amount_usd
     from exg_rates
 )
