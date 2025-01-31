@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='view') }}
 
 with
 
@@ -7,7 +7,7 @@ src as (
     select
         * EXCEPT(amount)
         , amount as amount_local
-    from {{ ref('src_acceptance_report') }}
+    from {{ ref('src_globalpay__acceptance_report') }}
 )
 
 -- 2. Compute amount values in USD

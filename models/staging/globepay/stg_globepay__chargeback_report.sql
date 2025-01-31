@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='view') }}
 
 with
 
@@ -6,7 +6,7 @@ with
 src as (
     select
         *
-    from {{ ref('src_chargeback_report') }}
+    from {{ ref('src_globalpay__chargeback_report') }}
 )
 
 -- 2. Cleanup
