@@ -30,3 +30,14 @@ At the staging level, the Subdirectories are based on the source system which is
 - _src_globalpay__chargeback_report_: staging with selected fields
 
   The staging models are not intended to be shared with final users. Therefore, to avoid wasting space in the warehouse and keep freshness, they are materialized as views.
+
+### models/mart/finance
+
+As it refers to transactions, the final model is allocated in the Finance Mart. 
+
+- _finance.yml_: YAML file declaring and testing the final model
+- _globepay_transactions_: this table joins the two available datasets using the external_ref as match key
+
+  Given that _globepay_transactions_ evolves data joining, it is crucial to test uniqueness to guarantee no duplicities.
+  
+  For this case, this is the final model. However, in a real scenario, probably more transaction data could be brought together to enhance it.
