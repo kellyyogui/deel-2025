@@ -2,17 +2,13 @@ version: 2
 
 models:
     - name: stg_acceptance_report
-      description: "Staging model to compute USD values and create date fields."
+      description: "Staging model of Globepay Acceptance Report to compute USD values and create date fields."
       columns:
           - name: external_ref
             description: "The primary key for this table"
             tests:
                 - unique
                 - not_null
-          - name: status
-            description: ""
-          - name: source
-            description: "Data source (GLOBALPAY)."
           - name: ref
             description: "Transaction ID."
           - name: date_time
@@ -39,3 +35,14 @@ models:
             description: "Month of the transaction."
           - name: day
             description: "Day of the transaction."
+
+    - name: stg_chargeback_report
+      description: "Staging model of Globepay Chargeback Report to filter fields."
+      columns:
+          - name: external_ref
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+          - name: chargeback
+            description: "The binary indicting if the transaction was charged back. For example: TRUE or FALSE."

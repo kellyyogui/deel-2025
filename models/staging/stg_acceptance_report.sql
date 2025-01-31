@@ -55,8 +55,8 @@ src as (
 , clean_dt as (
     select
         external_ref
-        , status
-        , source
+        -- , status > always true, so it does not add up any information
+        -- , source > may be irrelevant to the final users
         , ref
         , date_time
         , state
