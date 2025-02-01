@@ -40,6 +40,3 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
-      +persist_docs:
-        relation: true
-        columns: true
