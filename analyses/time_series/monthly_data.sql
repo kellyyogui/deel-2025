@@ -8,8 +8,8 @@ src as (
 , summary as (
   select
     year * 100 + month as year_month
-    , currency
-    , country
+    -- , currency
+    -- , country
     , count(external_ref) as transactions_qty
     , sum(amount_usd) as transactions_value
     , count(case when state = "ACCEPTED" then external_ref end) as accepted_qty
