@@ -3,6 +3,14 @@
 ## analyses
 Folder containing the developed queries to analyze the data.
 
+### analyses/overview.sql
+Query used to compute the big numbers per country. It allows for calculating the Total Acceptance Rate and the volume of declined payments in USD per country.
+
+### analyses/time_series
+This folder has three queries developed to explore time series data and display the acceptance rate over time (_rate_qty_) for different periodicities (monthly, weekly, and daily).
+
+### analyses/overview.sql
+This SQL query checks if there are missing values for the _chargeback_ field. Moreover, it computes the chargeback relevance.
 
 ## models
 Folder with the lineage based mainly on dbt best practices - [How we structure our dbt projects updated on Jan 28, 2025](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview). It has three layers: Sources, Staging, and Mart as described below.
