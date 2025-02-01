@@ -14,8 +14,8 @@ src as (
         when day >= 16 and  day < 24 then 3
         when day >= 24 then 4
       end as week        
-    , currency
-    , country
+    -- , currency
+    -- , country
     , count(external_ref) as transactions_qty
     , sum(amount_usd) as transactions_value
     , count(case when state = "ACCEPTED" then external_ref end) as accepted_qty
@@ -28,8 +28,8 @@ src as (
 
 , percentages as (
   select
-    * except(year_month, week)
-    , concat(cast(year_month as string), "_", week) as week
+    concat(cast(year_month as string), "_", week) as week
+    , * except(year_month, week)
     , accepted_qty/transactions_qty as rate_qty
     , accepeted_value/transactions_value as rate_value
   from summary
@@ -38,4 +38,5 @@ src as (
 select *
 from percentages
 -- where year_month >= 201904
-order by country, week
+order by week
+-- order by country, week

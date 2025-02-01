@@ -8,8 +8,8 @@ src as (
 , summary as (
   select
     year * 10000 + month * 100 + day as year_month_day     
-    , currency
-    , country
+    -- , currency
+    -- , country
     , count(external_ref) as transactions_qty
     , sum(amount_usd) as transactions_value
     , count(case when state = "ACCEPTED" then external_ref end) as accepted_qty
@@ -31,4 +31,5 @@ src as (
 select *
 from percentages
 where year_month_day >= 20190400
-order by country, year_month_day
+order by year_month_day
+-- order by country, year_month_day
